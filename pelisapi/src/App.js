@@ -1,12 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
-import React, { useState } from 'react';
+import React from 'react';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Buscador from './components/buscador/buscador';
+import Pelicula from './components/pelicula/pelicula';
  
 function App() {
   return (
     <div className="App">
-      <Buscador titulo="titulo"/>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Buscador/>}/>
+          <Route path="/pelicula/:imdbID" element={<Pelicula/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
