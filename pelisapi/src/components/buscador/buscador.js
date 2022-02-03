@@ -1,8 +1,9 @@
 import React, {useState} from "react"
 import axios from "axios"
+import {useNavigate, Link} from 'react-router-dom'
 let apiKey = '6d022ee2';
 
-export default function Buscador({titulo}){
+export default function Buscador(){
     const[input, setInput] = useState('');
     const[peliculas, setPeliculas] = useState([]);
 
@@ -23,7 +24,9 @@ export default function Buscador({titulo}){
             <button  onClick={handleSubmit}>Submit</button>
             {
                 peliculas?.map((p)=>{
-                    return <p>{p.Title}</p>
+                    return <Link to= {`/pelicula/${p.imdbID}`}>
+                                <h3>{p.Title}</h3>
+                            </Link>
                 })
             }
         </div>
