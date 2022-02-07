@@ -1,0 +1,15 @@
+.container{
+    background-color: rgb(226, 226, 226);
+    text-align: center;
+    cursor: pointer;
+    transition: background-color .4s;
+}
+
+.container:hover{
+    background-color: rgb(187, 181, 181);
+    transition: background-color .4s;
+}
+
+.fav:hover {
+    color: aqua;
+}

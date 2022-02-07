@@ -1,6 +1,9 @@
 import React, {useState} from "react"
 import axios from "axios"
 import {useNavigate, Link} from 'react-router-dom'
+import Card from "../card/card";
+import s from "./buscador.module.css"
+
 let apiKey = '6d022ee2';
 
 export default function Buscador(){
@@ -17,18 +20,18 @@ export default function Buscador(){
         let response = promise.data;
         setPeliculas(response.Search);
     }
-  
+    
     return (
         <div>
-            <input name='input' onChange={handleInput} ></input>
-            <button  onClick={handleSubmit}>Submit</button>
+            <input className={s.input}  name='input' onChange={handleInput} ></input>
+            <button onClick={handleSubmit}>Submit</button>
+            <div className={s.cards}>
             {
                 peliculas?.map((p)=>{
-                    return <Link to= {`/pelicula/${p.imdbID}`}>
-                                <h3>{p.Title}</h3>
-                            </Link>
+                    return <Card pelicula={p}/>
                 })
             }
+            </div>
         </div>
     )
 }
