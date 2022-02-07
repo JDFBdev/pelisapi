@@ -1,0 +1,14 @@
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 3rem;
+    grid-row-gap: 3rem;
+    margin: 2rem;
+}
+
+.input {
+    border: none;
+    background-color: aquamarine;
+    width: 20%;
+    height: 2rem;
+}
