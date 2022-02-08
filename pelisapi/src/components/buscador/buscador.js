@@ -9,6 +9,7 @@ let apiKey = '6d022ee2';
 export default function Buscador(){
     const[input, setInput] = useState('');
     const[peliculas, setPeliculas] = useState([]);
+    const Navigate = useNavigate();
 
     const handleInput = function(e){
       setInput(e.target.value);
@@ -24,7 +25,8 @@ export default function Buscador(){
     return (
         <div>
             <input className={s.input}  name='input' onChange={handleInput} ></input>
-            <button onClick={handleSubmit}>Submit</button>
+            <button onClick={handleSubmit}>Buscar</button>
+            <button onClick={()=>Navigate("/favs")}>Favoritos</button>
             <div className={s.cards}>
             {
                 peliculas?.map((p)=>{

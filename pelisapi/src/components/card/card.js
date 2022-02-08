@@ -2,6 +2,7 @@ import React from "react";
 import s from "./card.module.css"
 import { useNavigate } from "react-router-dom";
 import { AiOutlineStar } from "react-icons/ai";
+import { FaRegTrashAlt } from "react-icons/fa"
 import { AiFillStar } from "react-icons/ai";
 
 export default function Card({pelicula}) {
