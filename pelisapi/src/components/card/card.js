@@ -10,21 +10,26 @@ export default function Card({pelicula}) {
     const url = window.location.href.slice(21);
 
     let favs = []
-    function handleFav() {
+    function handleFav(e) {
         if (localStorage.getItem("favs")) {
             favs = JSON.parse(localStorage.getItem("favs"));
         }
         favs.push(pelicula);
         localStorage.setItem("favs", JSON.stringify(favs));
-
+        stopBubbling(e);
     }
 
     function handleRemoveFav() {
 
     }
 
+    function stopBubbling(e){
+        e.stopPropagation();
+        e.cancelBubble = true;
+    }
+
     return (
-        <div className={s.container} onClick={()=>Navigate(`/pelicula/${pelicula.imdbID}`)}>
+        <div className={s.container} onClick={(e)=>{stopBubbling(e); Navigate(`/pelicula/${pelicula.imdbID}`)}}>
             <p>{pelicula.Title}</p>
             {
                 url === '/' &&
