@@ -34,3 +34,12 @@ Component Will umount
 useEffect(() => {
     return () => console.log('this component has been removed');
 }, []);
+
+
+
+To-do:
+
+-Peli no se favee 2 veces
+-Mostrar q ya esta faveada, no te deje clickearlo
+-Meter pelis en el session storage
+-Cleanup

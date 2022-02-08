@@ -4,7 +4,7 @@ import s from "./favs.module.css"
 
 export default function Favs() {
     const favs = JSON.parse(localStorage.getItem("favs"));
-    console.log(favs);
+
     return (
         <div>
             <h3>Favoritos</h3>
