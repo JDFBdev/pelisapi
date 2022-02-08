@@ -10,6 +10,10 @@
     transition: background-color .4s;
 }
 
+.fav{
+    z-index: 10;
+}
+
 .fav:hover {
     color: aqua;
 }

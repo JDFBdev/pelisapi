@@ -7,6 +7,7 @@ import { AiFillStar } from "react-icons/ai";
 
 export default function Card({pelicula}) {
     const Navigate = useNavigate();
+    const url = window.location.href.slice(21);
 
     let favs = []
     function handleFav() {
@@ -18,10 +19,22 @@ export default function Card({pelicula}) {
 
     }
 
+    function handleRemoveFav() {
+
+    }
+
     return (
         <div className={s.container} onClick={()=>Navigate(`/pelicula/${pelicula.imdbID}`)}>
             <p>{pelicula.Title}</p>
-            <AiOutlineStar size={"2rem"} onClick={handleFav} className={s.fav}/>
+            {
+                url === '/' &&
+                <AiOutlineStar size={"2rem"} onClick={handleFav} className={s.fav}/>       
+            }
+            {
+                url === '/favs' && 
+                <FaRegTrashAlt size={"2rem"} onClick={handleRemoveFav} className={s.fav}/>  
+            }
+
             <p>{pelicula.Year}</p>
             <img src={pelicula.Poster}></img>
         </div>
