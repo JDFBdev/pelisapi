@@ -3,6 +3,7 @@ import s from "./card.module.css"
 import { useNavigate } from "react-router-dom";
 import { AiOutlineStar } from "react-icons/ai";
 import { FaRegTrashAlt } from "react-icons/fa"
+import toast from "react-hot-toast";
 import { AiFillStar } from "react-icons/ai";
 
 export default function Card({pelicula}) {
@@ -17,10 +18,17 @@ export default function Card({pelicula}) {
         favs.push(pelicula);
         localStorage.setItem("favs", JSON.stringify(favs));
         stopBubbling(e);
+        toast.success("Faveado");
     }
 
-    function handleRemoveFav() {
-
+    function handleRemoveFav(e) {
+        if (localStorage.getItem("favs")) {
+            favs = JSON.parse(localStorage.getItem("favs"));
+        }
+        let filtrado = favs.filter((p)=>{return p.imdbID != pelicula.imdbID})
+        localStorage.setItem("favs", JSON.stringify(filtrado));
+        stopBubbling(e);
+        window.location.reload(false);
     }
 
     function stopBubbling(e){
