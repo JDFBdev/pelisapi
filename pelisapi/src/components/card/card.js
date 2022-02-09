@@ -36,20 +36,32 @@ export default function Card({pelicula}) {
         e.cancelBubble = true;
     }
 
+    console.log(pelicula)
+
     return (
         <div className={s.container} onClick={(e)=>{stopBubbling(e); Navigate(`/pelicula/${pelicula.imdbID}`)}}>
-            <p>{pelicula.Title}</p>
             {
                 url === '/' &&
-                <AiOutlineStar size={"2rem"} onClick={handleFav} className={s.fav}/>       
+                <div className={s.favContainer}><AiOutlineStar size={"2rem"} onClick={handleFav} className={s.fav}/></div>    
             }
             {
                 url === '/favs' && 
-                <FaRegTrashAlt size={"2rem"} onClick={handleRemoveFav} className={s.fav}/>  
+                <div className={s.favContainer}><FaRegTrashAlt size={"2rem"} onClick={handleRemoveFav} className={s.fav}/></div> 
             }
-
-            <p>{pelicula.Year}</p>
-            <img src={pelicula.Poster}></img>
+            <div className={s.info}>
+                <p className={s.data}>{pelicula.Type.toUpperCase()}</p>
+                <p className={s.data}>{pelicula.Year}</p>
+                <div className={s.descriptionContainer}>
+                    <p className={s.description}>
+                        Earth Migtiest heroes go on a journey to get some hoes.
+                        Will they get em hoes? Yes, they end up getting them.
+                    </p>
+                </div>
+            </div>
+            <div style={{ backgroundImage: "url(" + pelicula.Poster + ")"}} className={s.image}/>
+            <div className={s.titleContainer}>
+                <p className={s.title} >{pelicula.Title}</p>
+            </div>
         </div>
     )
 }
