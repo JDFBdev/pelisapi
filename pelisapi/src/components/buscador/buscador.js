@@ -1,6 +1,6 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import axios from "axios"
-import {useNavigate, Link} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 import Card from "../card/card";
 import s from "./buscador.module.css"
 
@@ -20,11 +20,19 @@ export default function Buscador(){
         let promise = await axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&s=${input}`)
         let response = promise.data;
         setPeliculas(response.Search);
+        sessionStorage.setItem("buscados", JSON.stringify(response.Search));
     }
+
+    useEffect(() => {
+        if (sessionStorage.getItem("buscados")) {
+            let buscados = JSON.parse(sessionStorage.getItem("buscados"));
+            setPeliculas(buscados)
+        }
+    }, []);
     
     return (
         <div>
-            <input className={s.input}  name='input' onChange={handleInput} ></input>
+            <input className={s.input}  name='input' onChange={handleInput} onSubmit={handleSubmit}></input>
             <button onClick={handleSubmit}>Buscar</button>
             <button onClick={()=>Navigate("/favs")}>Favoritos</button>
             <div className={s.cards}>
