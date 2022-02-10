@@ -42,4 +42,9 @@ To-do:
 -Peli no se favee 2 veces
 -Mostrar q ya esta faveada, no te deje clickearlo
 -Meter pelis en el session storage
+-Traer peliculas populares al inicio
+-Traer descripciones a las cards (opcional)
+-Estilos
+-Dark mode
+-Responsiveness
 -Cleanup
