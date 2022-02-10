@@ -36,8 +36,6 @@ export default function Card({pelicula}) {
         e.cancelBubble = true;
     }
 
-    console.log(pelicula)
-
     return (
         <div className={s.container} onClick={(e)=>{stopBubbling(e); Navigate(`/pelicula/${pelicula.imdbID}`)}}>
             {
