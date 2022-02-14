@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react"
 import s from "./card.module.css"
 import { useNavigate } from "react-router-dom";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
@@ -8,6 +8,17 @@ import toast from "react-hot-toast";
 export default function Card({pelicula}) {
     const Navigate = useNavigate();
     const url = window.location.href.slice(21);
+    const [fav, setFav] = useState(false);
+
+    useEffect(() => {
+        let favs = JSON.parse(localStorage.getItem("favs"));
+        for (let peliFavs of favs) {
+            if (pelicula.imdbID == peliFavs.imdbID){
+                pelicula.fav = true;
+                setFav(true);
+            }
+        }
+    }, []);
 
     let favs = []
     function handleFav(e) {
@@ -15,12 +26,14 @@ export default function Card({pelicula}) {
             favs = JSON.parse(localStorage.getItem("favs"));
         }
         stopBubbling(e);
-        if (pelicula.fav) {
+        console.log(pelicula);
+        if (fav) {
             toast.error("Ya esta faveado")
         } else {
             favs.push(pelicula);
             localStorage.setItem("favs", JSON.stringify(favs));
             toast.success("Faveado");
+            setFav(true);
         }
     }
 
@@ -42,11 +55,11 @@ export default function Card({pelicula}) {
     return (
         <div className={s.container} onClick={(e)=>{stopBubbling(e); Navigate(`/pelicula/${pelicula.imdbID}`)}}>
             {
-                (url === '/' && pelicula.fav) &&
+                (url === '/' && fav) &&
                 <div className={s.favContainer}><AiFillStar size={"2rem"} className={s.fav}/></div>    
             }
             {
-                (url === '/' && !pelicula.fav) &&
+                (url === '/' && !fav) &&
                 <div className={s.favContainer}><AiOutlineStar size={"2rem"} onClick={handleFav} className={s.fav}/></div>    
             }
             {
