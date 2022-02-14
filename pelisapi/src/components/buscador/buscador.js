@@ -19,6 +19,19 @@ export default function Buscador(){
         e.preventDefault()
         let promise = await axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&s=${input}`)
         let response = promise.data;
+        let favs = JSON.parse(localStorage.getItem("favs"));
+        console.log(favs[0].imdbID);
+        console.log(response.Search[0].imdbID);
+        for (let peliResponse of response.Search) {
+            for (let peliFavs of favs) {
+                if (peliResponse.imdbID == peliFavs.imdbID){
+                    peliResponse.fav = true;
+                } else {
+                    peliResponse.fav = false;
+                }
+            }
+        }
+
         setPeliculas(response.Search);
         sessionStorage.setItem("buscados", JSON.stringify(response.Search));
     }
