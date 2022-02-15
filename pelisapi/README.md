@@ -42,7 +42,6 @@ To-do:
 -Limitar busqueda a 10
 -Traer peliculas populares al inicio
 -Traer descripciones a las cards (opcional)
--Overflow en card description
 -Estilos
 -Dark mode
 -Responsiveness
