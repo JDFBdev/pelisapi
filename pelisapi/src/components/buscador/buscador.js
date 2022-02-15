@@ -19,8 +19,9 @@ export default function Buscador(){
         e.preventDefault()
         let promise = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${input}&page=1&include_adult=false`)
         let response = promise.data;
-        setPeliculas(response.result);
-        sessionStorage.setItem("buscados", JSON.stringify(response.result));
+       
+        setPeliculas(response.results);
+        sessionStorage.setItem("buscados", JSON.stringify(response.results));
     }
 
     useEffect(() => {
@@ -29,6 +30,8 @@ export default function Buscador(){
             setPeliculas(buscados)
         }
     }, []);
+
+    console.log(peliculas)
     
     return (
         <div>

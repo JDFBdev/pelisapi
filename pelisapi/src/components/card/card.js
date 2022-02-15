@@ -6,6 +6,7 @@ import { FaRegTrashAlt } from "react-icons/fa"
 import toast from "react-hot-toast";
 
 export default function Card({pelicula}) {
+
     const Navigate = useNavigate();
     const url = window.location.href.slice(21);
     const [fav, setFav] = useState(false);
@@ -40,7 +41,7 @@ export default function Card({pelicula}) {
         if (localStorage.getItem("favs")) {
             favs = JSON.parse(localStorage.getItem("favs"));
         }
-        let filtrado = favs.filter((p)=>{return p.imdbID != pelicula.id})
+        let filtrado = favs.filter((p)=>{return p.id != pelicula.id})
         localStorage.setItem("favs", JSON.stringify(filtrado));
         stopBubbling(e);
         window.location.reload(false);

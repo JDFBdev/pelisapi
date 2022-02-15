@@ -24,8 +24,8 @@ export default function Pelicula(){
                 <p>{pelicula.vote_average}</p>
                 <p>{pelicula.runtime}</p>
             </div>
-            <img src={pelicula.poster_path}></img>
-            <p>{pelicula.overview}</p>s
+            <img src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`}></img>
+            <p>{pelicula.overview}</p>
         </div>
     )
 }
