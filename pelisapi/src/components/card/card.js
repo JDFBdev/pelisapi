@@ -13,7 +13,7 @@ export default function Card({pelicula}) {
     useEffect(() => {
         let favs = JSON.parse(localStorage.getItem("favs"));
         for (let peliFavs of favs) {
-            if (pelicula.imdbID == peliFavs.imdbID){
+            if (pelicula.id == peliFavs.id){
                 pelicula.fav = true;
                 setFav(true);
             }
@@ -26,7 +26,6 @@ export default function Card({pelicula}) {
             favs = JSON.parse(localStorage.getItem("favs"));
         }
         stopBubbling(e);
-        console.log(pelicula);
         if (fav) {
             toast.error("Ya esta faveado")
         } else {
@@ -41,7 +40,7 @@ export default function Card({pelicula}) {
         if (localStorage.getItem("favs")) {
             favs = JSON.parse(localStorage.getItem("favs"));
         }
-        let filtrado = favs.filter((p)=>{return p.imdbID != pelicula.imdbID})
+        let filtrado = favs.filter((p)=>{return p.imdbID != pelicula.id})
         localStorage.setItem("favs", JSON.stringify(filtrado));
         stopBubbling(e);
         window.location.reload(false);
@@ -53,7 +52,7 @@ export default function Card({pelicula}) {
     }
 
     return (
-        <div className={s.container} onClick={(e)=>{stopBubbling(e); Navigate(`/pelicula/${pelicula.imdbID}`)}}>
+        <div className={s.container} onClick={(e)=>{stopBubbling(e); Navigate(`/pelicula/${pelicula.id}`)}}>
             {
                 (url === '/' && fav) &&
                 <div className={s.favContainer}><AiFillStar size={"2rem"} className={s.fav}/></div>    
@@ -67,18 +66,14 @@ export default function Card({pelicula}) {
                 <div className={s.favContainer}><FaRegTrashAlt size={"2rem"} onClick={handleRemoveFav} className={s.fav}/></div> 
             }
             <div className={s.info}>
-                <p className={s.data}>{pelicula.Type.toUpperCase()}</p>
-                <p className={s.data}>{pelicula.Year}</p>
+                <p className={s.data}>{pelicula.release_date}</p>
                 <div className={s.descriptionContainer}>
-                    <p className={s.description}>
-                        Earth Migtiest heroes go on a journey to get some hoes.
-                        Will they get em hoes? Yes, they end up getting them.
-                    </p>
+                    <p className={s.description}>{pelicula.overview}</p>
                 </div>
             </div>
-            <div style={{ backgroundImage: "url(" + pelicula.Poster + ")"}} className={s.image}/>
+            <div style={{ backgroundImage: "url(" + "https://image.tmdb.org/t/p/w500"+ pelicula.poster_path + ")"}} className={s.image}/>
             <div className={s.titleContainer}>
-                <p className={s.title} >{pelicula.Title}</p>
+                <p className={s.title} >{pelicula.title}</p>
             </div>
         </div>
     )

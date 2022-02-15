@@ -4,7 +4,7 @@ import {useNavigate} from 'react-router-dom'
 import Card from "../card/card";
 import s from "./buscador.module.css"
 
-let apiKey = '6d022ee2';
+let apiKey = '9606b913162ebfc8b1e68fc22f824e10';
 
 export default function Buscador(){
     const[input, setInput] = useState('');
@@ -17,10 +17,10 @@ export default function Buscador(){
 
     const handleSubmit = async function(e){
         e.preventDefault()
-        let promise = await axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&s=${input}`)
+        let promise = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${input}&page=1&include_adult=false`)
         let response = promise.data;
-        setPeliculas(response.Search);
-        sessionStorage.setItem("buscados", JSON.stringify(response.Search));
+        setPeliculas(response.result);
+        sessionStorage.setItem("buscados", JSON.stringify(response.result));
     }
 
     useEffect(() => {
