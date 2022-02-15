@@ -26,7 +26,6 @@
     border-top-left-radius: .4rem;
     border-top-right-radius: .4rem;
     text-align: center;
-
 }
 
 .info:hover{
@@ -55,7 +54,7 @@
 
 .descriptionContainer{
     padding: 1rem;
-
+    
 }
 
 .description{
@@ -64,6 +63,7 @@
     font-family: 'Montserrat';
     font-weight: bold;
     opacity: 0;
+
 }
 
 .titleContainer{

@@ -52,6 +52,20 @@ export default function Card({pelicula}) {
         e.cancelBubble = true;
     }
 
+    function handleDescription(){
+        let desc = '';
+
+        if(pelicula.overview.length > 375){
+            desc = pelicula.overview.slice(0, 375);
+            return <p className={s.description}>{`${desc}...`}</p>
+        } else {
+            return <p className={s.description}>{pelicula.overview}</p>
+        }
+        
+    }
+
+
+
     return (
         <div className={s.container} onClick={(e)=>{stopBubbling(e); Navigate(`/pelicula/${pelicula.id}`)}}>
             {
@@ -69,7 +83,9 @@ export default function Card({pelicula}) {
             <div className={s.info}>
                 <p className={s.data}>{pelicula.release_date}</p>
                 <div className={s.descriptionContainer}>
-                    <p className={s.description}>{pelicula.overview}</p>
+                    {
+                        handleDescription()
+                    }
                 </div>
             </div>
             <div style={{ backgroundImage: "url(" + "https://image.tmdb.org/t/p/w500"+ pelicula.poster_path + ")"}} className={s.image}/>
