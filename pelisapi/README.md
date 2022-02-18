@@ -39,9 +39,7 @@ useEffect(() => {
 
 To-do:
 
--Limitar busqueda a 10
--Traer peliculas populares al inicio
--Traer descripciones a las cards (opcional)
+-Swipe de pelis
 -Estilos
 -Dark mode
 -Responsiveness
