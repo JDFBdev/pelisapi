@@ -13,6 +13,9 @@ export default function Card({pelicula}) {
 
     useEffect(() => {
         let favs = JSON.parse(localStorage.getItem("favs"));
+        if (!favs) {
+            return
+        }
         for (let peliFavs of favs) {
             if (pelicula.id == peliFavs.id){
                 pelicula.fav = true;
@@ -20,6 +23,24 @@ export default function Card({pelicula}) {
             }
         }
     }, []);
+
+    useEffect(() => {
+        setFav(false);
+        let favs = JSON.parse(localStorage.getItem("favs"));
+        if (!favs) {
+            return
+        }
+        for (let peliFavs of favs) {
+            console.log(pelicula.id , peliFavs.id)
+            if (pelicula.id == peliFavs.id){
+                console.log("a");
+                pelicula.fav = true;
+                setFav(true);
+            }
+        }
+    }, [pelicula]);
+
+    console.log(fav, pelicula.title);
 
     let favs = []
     function handleFav(e) {
@@ -78,7 +99,7 @@ export default function Card({pelicula}) {
             }
             {
                 url === '/favs' && 
-                <div className={s.favContainer}><FaRegTrashAlt size={"2rem"} onClick={handleRemoveFav} className={s.fav}/></div> 
+                <div className={s.favContainer}><FaRegTrashAlt size={"2rem"} onClick={handleRemoveFav} className={s.fav}/></div>
             }
             <div className={s.info}>
                 <p className={s.data}>{pelicula.release_date}</p>
