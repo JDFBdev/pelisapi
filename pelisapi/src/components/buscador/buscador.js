@@ -3,7 +3,7 @@ import axios from "axios"
 import {useNavigate} from 'react-router-dom'
 import Card from "../card/card";
 import s from "./buscador.module.css"
-
+import Swiper from '../Swiper/Swiper';
 let apiKey = '9606b913162ebfc8b1e68fc22f824e10';
 
 export default function Buscador(){
@@ -48,11 +48,7 @@ export default function Buscador(){
             <button onClick={()=>Navigate("/favs")}>Favoritos</button>
             <button onClick={handlePopular}>Populares</button>
             <div className={s.cards}>
-            {
-                peliculas?.map((p)=>{
-                    return <Card pelicula={p}/>
-                })
-            }
+            <Swiper peliculas={peliculas} />
             </div>
         </div>
     )
