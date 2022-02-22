@@ -52,6 +52,25 @@
     transition: opacity .5s;
 }
 
+.info:hover .rating{
+    transition: opacity .5s;
+    opacity: 1;
+}
+
+.rating{
+    color: rgb(71, 209, 36);
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 0;
+    transition: opacity .5s;
+    opacity: 0;
+    position: absolute;
+    margin: 0;
+    margin-left: .5rem;
+    margin-top: .5rem;
+}
+
 .descriptionContainer{
     padding: 1rem;
     
