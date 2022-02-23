@@ -1,3 +1,51 @@
+.buscador{
+    background-image: linear-gradient(to bottom right, rgb(13, 37, 77), rgb(26, 145, 85));
+    z-index: -1;
+}
+
+.navbar{
+    background-color: rgb(39, 39, 39);
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 5vh;
+}
+
+.inputDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.input {
+    border: none;
+    background-color: rgb(177, 177, 177);
+    border-radius: .5rem;
+    height: 2rem;
+    width: 20rem;
+}
+
+.btn{
+    border: none;
+    padding: .5rem;
+    font-family: 'Montserrat';
+    font-size: 1.3rem;
+    background: none;
+    color: rgb(177, 177, 177);
+    font-weight: bolder;
+    cursor: pointer;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.container{
+    overflow-x: hidden;
+    height: 85.2vh;
+    padding: 2rem;
+}
+
 .cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -28,11 +76,4 @@
     .cards {
         grid-template-columns: 1fr;
     }
-}
-
-.input {
-    border: none;
-    background-color: aquamarine;
-    width: 20%;
-    height: 2rem;
 }

@@ -110,7 +110,6 @@ export default function Card({pelicula}) {
     function handleRating() {
         let rating = Number(Math.floor(pelicula.vote_average));
         let color;
-        console.log(rating);
         switch (rating) {
             case 1: case 2: case 3:
                 color = "red";

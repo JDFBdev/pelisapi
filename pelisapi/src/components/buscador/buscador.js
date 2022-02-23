@@ -4,7 +4,26 @@ import {useNavigate} from 'react-router-dom'
 import Card from "../card/card";
 import s from "./buscador.module.css"
 import Swiper from '../Swiper/Swiper';
+import ParticleBackground from 'react-particle-backgrounds';
 let apiKey = '9606b913162ebfc8b1e68fc22f824e10';
+
+const settings = {
+    particle: {
+      particleCount: 35,
+      color: "#fff",
+      minSize: 2,
+      maxSize: 6
+    },
+    velocity: {
+      minSpeed: 0.2,
+      maxSpeed: 0.4
+    },
+    opacity: {
+      minOpacity: 0,
+      maxOpacity: 0.6,
+      opacityTransitionTime: 10000
+    }
+  }
 
 export default function Buscador(){
     const[input, setInput] = useState('');
@@ -42,13 +61,20 @@ export default function Buscador(){
     }, []);
     
     return (
-        <div>
-            <input className={s.input}  name='input' onChange={handleInput} onSubmit={handleSubmit}></input>
-            <button onClick={handleSubmit}>Buscar</button>
-            <button onClick={()=>Navigate("/favs")}>Favoritos</button>
-            <button onClick={handlePopular}>Populares</button>
-            <div className={s.cards}>
-            <Swiper peliculas={peliculas} />
+        <div className={s.buscador}>
+            <ParticleBackground settings={settings} style={{position: 'absolute', zIndex:'-1'}}/>
+            <div className={s.navbar}>
+                <div className={s.inputDiv}>
+                    <input className={s.input} name='input' onChange={handleInput} onSubmit={handleSubmit}></input>
+                    <button className={s.btn} onClick={handleSubmit}>Search</button>
+                </div>
+                <div className={s.btns}>
+                    <button className={s.btn} onClick={()=>Navigate("/favs")}>Favorites</button>
+                    <button className={s.btn} onClick={handlePopular}>Trending</button>
+                </div>
+            </div>
+            <div className={s.container}>
+                <Swiper peliculas={peliculas} />
             </div>
         </div>
     )
