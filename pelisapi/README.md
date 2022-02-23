@@ -39,7 +39,6 @@ useEffect(() => {
 
 To-do:
 
--Mostrar Rating
 -Navbar, footer
 -Swipe de pelis
 -Estilos
