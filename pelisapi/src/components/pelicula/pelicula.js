@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react"
 import { useNavigate } from 'react-router-dom'
 import { useParams } from "react-router-dom";
 import axios from "axios"
-let apiKey = '6d022ee2';
+let apiKey = '9606b913162ebfc8b1e68fc22f824e10';
 
 export default function Pelicula(){
     let params = useParams();
@@ -10,7 +10,7 @@ export default function Pelicula(){
     const Navigate = useNavigate();
 
     useEffect(async () => {
-        let promise = await axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&i=${params.imdbID}`)
+        let promise = await axios.get(`https://api.themoviedb.org/3/movie/${params.id}}?api_key=${apiKey}&language=en-US`)
         let response = promise.data;
         setPelicula(response);
     }, []);
@@ -18,15 +18,14 @@ export default function Pelicula(){
     return (
         <div>
             <button onClick={()=>Navigate("/")}> Go Back </button> 
-            <h1>{pelicula.Title}</h1>
+            <h1>{pelicula.title}</h1>
             <div>
-                <p>{pelicula.Year}</p>
-                <p>{pelicula.Rated}</p>
-                <p>{pelicula.Runtime}</p>
+                <p>{pelicula.release_date}</p>
+                <p>{pelicula.vote_average}</p>
+                <p>{pelicula.runtime}</p>
             </div>
-            <img src={pelicula.Poster}></img>
-            <p>{pelicula.Plot}</p>
-            <p>{pelicula.Director}</p>
+            <img src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`}></img>
+            <p>{pelicula.overview}</p>
         </div>
     )
 }
