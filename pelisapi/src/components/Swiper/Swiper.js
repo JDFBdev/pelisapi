@@ -21,6 +21,7 @@ export default function App({peliculas}) {
         centeredSlides={false}
         spaceBetween={-500}
         grabCursor={true}
+
         pagination={false}
         modules={[Pagination]}
         className="mySwiper"

@@ -62,11 +62,15 @@ export default function Buscador(){
     }
 
     const handlePopular = async function(){
-        let promise = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`)
-        let response = promise.data;
+        let promise1 = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`)
+        let promise2 = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=2`)
+        let promise3 = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=3`)
+        let response = [];
+        response = promise1.data.results.concat(promise2.data.results);
+        response = response.concat(promise3.data.results);
 
         setPopulares(true);
-        setPeliculas(response.results);
+        setPeliculas(response);
         sessionStorage.removeItem("buscados");
     }
 
@@ -93,10 +97,15 @@ export default function Buscador(){
         }
         return (
         <>
+            <h3 className={s.swiperTitle}>Trending</h3>
             <Swiper peliculas={peliculas} />
+            <h3 className={s.swiperTitle}>Action</h3>
             <Swiper peliculas={accion} />
+            <h3 className={s.swiperTitle}>Animation</h3>
             <Swiper peliculas={animacion} />
+            <h3 className={s.swiperTitle}>Drama</h3>
             <Swiper peliculas={drama} />
+            <h3 className={s.swiperTitle}>Sciene Fiction</h3>
             <Swiper peliculas={ficcion} />
         </>
         )
