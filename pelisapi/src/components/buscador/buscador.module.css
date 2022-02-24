@@ -56,6 +56,12 @@
     margin: 2rem;
 }
 
+.swiperTitle {
+    font-size: 2rem;
+    color: white;
+    font-family: "Montserrat";
+}
+
 @media (max-width: 1540px) {
     .cards {
         grid-template-columns: 1fr 1fr 1fr 1fr;
