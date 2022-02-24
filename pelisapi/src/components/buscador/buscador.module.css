@@ -1,6 +1,9 @@
 .buscador{
     background-image: linear-gradient(to bottom right, rgb(13, 37, 77), rgb(26, 145, 85));
-    z-index: -1;
+}
+
+.background{
+    position: absolute;
 }
 
 .navbar{
@@ -10,7 +13,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    height: 5vh;
+    height: 5%;
 }
 
 .inputDiv{
@@ -42,7 +45,6 @@
 
 .container{
     overflow-x: hidden;
-    height: 85.2vh;
     padding: 2rem;
 }
 
@@ -50,7 +52,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-column-gap: 3rem;
-    grid-row-gap: 3rem;
+    grid-row-gap: 5rem;
     margin: 2rem;
 }
 
