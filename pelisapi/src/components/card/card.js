@@ -17,12 +17,12 @@ export default function Card({pelicula, color10}) {
             return
         }
         for (let peliFavs of favs) {
-            if (pelicula.id == peliFavs.id){
+            if (pelicula.id === peliFavs.id){
                 pelicula.fav = true;
                 setFav(true);
             }
         }
-    }, []);
+    }, );
 
     useEffect(() => {
         setFav(false);
@@ -31,7 +31,7 @@ export default function Card({pelicula, color10}) {
             return
         }
         for (let peliFavs of favs) {
-            if (pelicula.id == peliFavs.id){
+            if (pelicula.id === peliFavs.id){
                 pelicula.fav = true;
                 setFav(true);
             }
@@ -58,7 +58,7 @@ export default function Card({pelicula, color10}) {
         if (localStorage.getItem("favs")) {
             favs = JSON.parse(localStorage.getItem("favs"));
         }
-        let filtrado = favs.filter((p)=>{return p.id != pelicula.id})
+        let filtrado = favs.filter((p)=>{return p.id !== pelicula.id})
         localStorage.setItem("favs", JSON.stringify(filtrado));
         stopBubbling(e);
         window.location.reload(false);
@@ -96,6 +96,7 @@ export default function Card({pelicula, color10}) {
                 break;
             case 10:
                 color = `rgb(${color10.r},${color10.g},${color10.b})`;
+            default:
                 
         }
         return <h1 style={{color : color, transition: "color 2s ease", WebkitTransition: "color 2s ease", MozTransition: "color 2s ease"}} className={s.rating}>{pelicula.vote_average}</h1>

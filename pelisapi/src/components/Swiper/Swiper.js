@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import Card from "../card/card";
@@ -11,7 +11,6 @@ import "./styles.css";
 
 // import required modules
 import { Pagination } from "swiper";
-import { FaLessThan } from "react-icons/fa";
 
 export default function App({peliculas, color10}) {
   return (
@@ -28,7 +27,7 @@ export default function App({peliculas, color10}) {
       >
     {
         peliculas?.map((p)=>{
-            return <SwiperSlide ><Card pelicula={p} color10={color10} /></SwiperSlide>
+            return <SwiperSlide key={p.id}><Card key={p.id} pelicula={p} color10={color10} /></SwiperSlide>
         })
     }
       </Swiper>

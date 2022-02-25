@@ -55,16 +55,16 @@ export default function Buscador({color10}){
         let ficcion = [];
         for (let peli in peliculas) {
             for (let id_genero in peliculas[peli].genre_ids) {
-                if (peliculas[peli].genre_ids[id_genero] == "28") {
+                if (peliculas[peli].genre_ids[id_genero] === 28) {
                     accion.push(peliculas[peli]);
                 }
-                if (peliculas[peli].genre_ids[id_genero] == "16") {
+                if (peliculas[peli].genre_ids[id_genero] === 16) {
                     animacion.push(peliculas[peli]);
                 }
-                if (peliculas[peli].genre_ids[id_genero] == "18") {
+                if (peliculas[peli].genre_ids[id_genero] === 18) {
                     drama.push(peliculas[peli]);
                 }
-                if (peliculas[peli].genre_ids[id_genero] == "878") {
+                if (peliculas[peli].genre_ids[id_genero] === 878) {
                     ficcion.push(peliculas[peli]);
                 }
             }
@@ -129,7 +129,7 @@ export default function Buscador({color10}){
                     {
                         (!populares) &&
                         peliculas?.map((p)=>{
-                            return <Card pelicula={p} color10={color10} />
+                            return <Card key={p.id} pelicula={p} color10={color10} />
                         })
                     }
                 </div>
