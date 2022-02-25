@@ -43,7 +43,7 @@ export default function Pelicula(){
   
     return (
         <div className={s.container}>
-            <ParticleBackground settings={settings} className={s.background}/>
+            {/* <ParticleBackground settings={settings} className={s.background}/> */}
             <div className={s.navbar}>
                 <div className={s.btns}>
                     <button className={s.btn} onClick={()=>Navigate('/')}>Main page</button>
@@ -56,7 +56,7 @@ export default function Pelicula(){
                     <p>{pelicula.vote_average}</p>
                     <p>{pelicula.runtime}</p>
                 </div>
-                <img src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`}></img>
+                <img src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`} className={s.img}/>
                 <div className={s.descripcion}>
                     <p>{pelicula.overview}</p>
                 </div>

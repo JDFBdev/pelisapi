@@ -2,7 +2,8 @@
     background-image: linear-gradient(to bottom right, rgb(13, 37, 77), rgb(26, 145, 85));
     min-height: 100vh;
     height: calc(fit-content + 5vh);
-    overflow: hidden;
+    overflow-x: hidden;
+    position: relative;
 }
 
 .background{
@@ -44,14 +45,29 @@
 }
 
 .info{
-    margin: 10vh;
+    position: absolute;
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    margin-top: 3%;
+
     text-align: center;
     color: white;
     font-family: "Montserrat";
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 40vw;
+    align-self: center;
+
+}
+
+.img{
+    width: 20vw;
+    object-fit: cover;
 }
 
 .descripcion{
