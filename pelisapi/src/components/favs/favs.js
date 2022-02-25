@@ -45,7 +45,7 @@ export default function Favs() {
             <div className={s.cards}>
             {
                 favs?.map((p)=>{
-                    return <Card pelicula={p}/>
+                    return <Card key={p.id} pelicula={p}/>
                 })
             }
             </div>
