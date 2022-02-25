@@ -25,37 +25,11 @@ const settings = {
     }
   }
 
-export default function Buscador(){
+export default function Buscador({color10}){
     const[input, setInput] = useState('');
     const[peliculas, setPeliculas] = useState([]);
     const Navigate = useNavigate();
     const [populares, setPopulares] = useState(true);
-    const [counter, setCounter] = useState(6);
-    const [color10,setColor] = useState({r:173, g:0, b: 0})
-
-    useEffect(() => {
-        counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
-        counter === 0 && setCounter(6)
-        if (counter === 6){
-            setColor({r:173, g: 0, b:0})
-        }
-        if (counter === 5){
-            setColor({r:173, g: 173, b:0})
-        }
-        if (counter === 4){
-            setColor({r:0, g: 173, b:0})
-        }
-        if (counter === 3){
-            setColor({r:0, g: 173, b:173})
-        }
-        if (counter === 2){
-            setColor({r:0, g: 0, b:173})
-        }
-        if (counter === 1){
-            setColor({r:173, g: 0, b:173})
-        }
-
-    }, [counter]);
 
     const handleInput = function(e){
       setInput(e.target.value);
@@ -98,15 +72,15 @@ export default function Buscador(){
         return (
         <>
             <h3 className={s.swiperTitle}>Trending</h3>
-            <Swiper peliculas={peliculas} />
+            <Swiper peliculas={peliculas} color10={color10} />
             <h3 className={s.swiperTitle}>Action</h3>
-            <Swiper peliculas={accion} />
+            <Swiper peliculas={accion} color10={color10} />
             <h3 className={s.swiperTitle}>Animation</h3>
-            <Swiper peliculas={animacion} />
+            <Swiper peliculas={animacion} color10={color10} />
             <h3 className={s.swiperTitle}>Drama</h3>
-            <Swiper peliculas={drama} />
+            <Swiper peliculas={drama} color10={color10} />
             <h3 className={s.swiperTitle}>Sciene Fiction</h3>
-            <Swiper peliculas={ficcion} />
+            <Swiper peliculas={ficcion} color10={color10} />
         </>
         )
     }
