@@ -38,11 +38,6 @@ useEffect(() => {
 
 
 To-do:
--RGB Optimizado
--Mostrar Rating
--Navbar, footer
--Swipe de pelis
 -Estilos
--Dark mode
 -Responsiveness
 -Cleanup
