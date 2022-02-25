@@ -7,6 +7,7 @@
 }
 
 .navbar{
+    position: fixed;
     background-color: rgb(39, 39, 39);
     padding: 1rem;
     display: flex;
@@ -14,6 +15,8 @@
     align-items: center;
     justify-content: space-between;
     height: 5%;
+    z-index: 15;
+    width: 100%;
 }
 
 .inputDiv{
@@ -30,6 +33,10 @@
     width: 20rem;
 }
 
+.btns{
+    margin-right: 2rem;
+}
+
 .btn{
     border: none;
     padding: .5rem;
@@ -39,13 +46,15 @@
     color: rgb(177, 177, 177);
     font-weight: bolder;
     cursor: pointer;
-    margin-left: 1rem;
+    margin-left: 2rem;
     margin-right: 1rem;
 }
 
 .container{
     overflow-x: hidden;
     padding: 2rem;
+    padding-top: 4rem;
+    
 }
 
 .cards {
