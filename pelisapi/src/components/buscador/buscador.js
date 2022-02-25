@@ -134,7 +134,6 @@ export default function Buscador({color10}){
                     }
                 </div>
             </div>
-            
         </div>
     )
 }
