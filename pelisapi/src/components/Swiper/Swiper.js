@@ -13,7 +13,7 @@ import "./styles.css";
 import { Pagination } from "swiper";
 import { FaLessThan } from "react-icons/fa";
 
-export default function App({peliculas}) {
+export default function App({peliculas, color10}) {
   return (
     <>
       <Swiper
@@ -28,7 +28,7 @@ export default function App({peliculas}) {
       >
     {
         peliculas?.map((p)=>{
-            return <SwiperSlide ><Card pelicula={p} /></SwiperSlide>
+            return <SwiperSlide ><Card pelicula={p} color10={color10} /></SwiperSlide>
         })
     }
       </Swiper>
