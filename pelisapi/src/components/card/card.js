@@ -45,11 +45,11 @@ export default function Card({pelicula, color10}) {
         }
         stopBubbling(e);
         if (fav) {
-            toast.error("Ya esta faveado")
+            toast.error("Already in Favorites")
         } else {
             favs.push(pelicula);
             localStorage.setItem("favs", JSON.stringify(favs));
-            toast.success("Faveado");
+            toast.success("Added to Favorites");
             setFav(true);
         }
     }
