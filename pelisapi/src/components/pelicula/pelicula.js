@@ -43,22 +43,22 @@ export default function Pelicula(){
   
     return (
         <div className={s.container}>
-            {/* <ParticleBackground settings={settings} className={s.background}/> */}
+            <ParticleBackground settings={settings} className={s.background}/>
             <div className={s.navbar}>
                 <div className={s.btns}>
                     <button className={s.btn} onClick={()=>Navigate('/')}>Main page</button>
                 </div>
             </div>
             <div className={s.info}>
-                <h1>{pelicula.title}</h1>
+                <h1 className={s.titulo}>{pelicula.title}</h1>
                 <div>
-                    <p>{pelicula.release_date}</p>
-                    <p>{pelicula.vote_average}</p>
-                    <p>{pelicula.runtime}</p>
+                    <p className={s.detalles}>Release Date: {pelicula.release_date}</p>
+                    <p className={s.detalles}>Rating: {pelicula.vote_average}</p>
+                    <p className={s.detalles}>Runtime: {pelicula.runtime} min</p>
                 </div>
                 <img src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`} className={s.img}/>
                 <div className={s.descripcion}>
-                    <p>{pelicula.overview}</p>
+                    <p className={s.detalles}>{pelicula.overview}</p>
                 </div>
             </div>
         </div>
