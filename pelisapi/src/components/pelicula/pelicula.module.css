@@ -1,0 +1,60 @@
+.container{
+    background-image: linear-gradient(to bottom right, rgb(13, 37, 77), rgb(26, 145, 85));
+    min-height: 100vh;
+    height: calc(fit-content + 5vh);
+    overflow: hidden;
+}
+
+.background{
+    position: absolute;
+    margin: 0;
+}
+
+.navbar{
+    position: fixed;
+    background-color: rgb(39, 39, 39);
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 5%;
+    width: 100vw;
+    z-index: 15;
+}
+
+.btn{
+    border: none;
+    padding: .5rem;
+    font-family: 'Montserrat';
+    font-size: 1.3rem;
+    background: none;
+    color: rgb(177, 177, 177);
+    font-weight: bolder;
+    cursor: pointer;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.title{
+    margin: 2rem;
+    color:white;
+    font-size: 2rem;
+    font-family: 'Montserrat';
+}
+
+.info{
+    margin: 10vh;
+    text-align: center;
+    color: white;
+    font-family: "Montserrat";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40vw;
+}
+
+.descripcion{
+    width: 40vw;
+    height: fit-content;
+}
