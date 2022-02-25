@@ -34,12 +34,13 @@ export default function Favs() {
 
     return (
         <div className={s.container}>
+            <ParticleBackground settings={settings} className={s.background}/>
             <div className={s.navbar}>
                 <div className={s.btns}>
                     <button className={s.btn} onClick={()=>Navigate('/')}>Main page</button>
                 </div>
             </div>
-            <ParticleBackground settings={settings} className={s.background}/>
+            
             <h3 className={s.title} >Favorites</h3>
             <div className={s.cards}>
             {
