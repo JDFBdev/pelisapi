@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "../card/card";
 import s from "./favs.module.css"
 import ParticleBackground from 'react-particle-backgrounds';
 import {useNavigate} from 'react-router-dom'
+import { useModal } from "react-hooks-use-modal";
+import { CSSTransition } from "react-transition-group";
+import Pelicula from "../pelicula/pelicula";
 
 const settings = {
     canvas: {
@@ -29,8 +32,14 @@ const settings = {
   }
 
 export default function Favs() {
+    const [selected, setSelected] = useState({});
+    const [Modal, open] = useModal('root', {
+        preventScroll: true,
+        closeOnOverlayClick: true
+    });
     const Navigate = useNavigate();
     const favs = JSON.parse(localStorage.getItem("favs"));
+    
 
     return (
         <div className={s.container}>
@@ -45,10 +54,21 @@ export default function Favs() {
             <div className={s.cards}>
             {
                 favs?.map((p)=>{
-                    return <Card key={p.id} pelicula={p}/>
+                    return <Card key={p.id} pelicula={p} setSelected={setSelected} open={open} />
                 })
             }
             </div>
+            <Modal>
+            <CSSTransition
+                in={true}
+                timeout={0}
+                appear={true}
+                key={0}
+                classNames={{ appear: s.MyClassEnterActive, enterDone: s.MyClassEnterDone}}
+            >
+                <Pelicula id={selected.id} />
+            </CSSTransition>
+            </Modal>
         </div>
     )
 }

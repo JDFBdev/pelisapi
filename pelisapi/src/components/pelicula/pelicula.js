@@ -1,6 +1,4 @@
 import React, {useState, useEffect} from "react"
-import { useNavigate } from 'react-router-dom'
-import { useParams } from "react-router-dom";
 import axios from "axios";
 import s from "./pelicula.module.css";
 import ParticleBackground from 'react-particle-backgrounds';
@@ -30,13 +28,12 @@ const settings = {
     }
   }
 
-export default function Pelicula(){
-    let params = useParams();
+export default function Pelicula({id}){
+    
     const[pelicula, setPelicula] = useState({});
-    const Navigate = useNavigate();
 
     useEffect(async () => {
-        let promise = await axios.get(`https://api.themoviedb.org/3/movie/${params.id}}?api_key=${apiKey}&language=en-US`)
+        let promise = await axios.get(`https://api.themoviedb.org/3/movie/${id}}?api_key=${apiKey}&language=en-US`)
         let response = promise.data;
         setPelicula(response);
     }, []);
@@ -44,11 +41,6 @@ export default function Pelicula(){
     return (
         <div className={s.container}>
             <ParticleBackground settings={settings} className={s.background}/>
-            <div className={s.navbar}>
-                <div className={s.btns}>
-                    <button className={s.btn} onClick={()=>Navigate('/')}>Main page</button>
-                </div>
-            </div>
             <div className={s.info}>
                 <h1 className={s.titulo}>{pelicula.title}</h1>
                 <div>

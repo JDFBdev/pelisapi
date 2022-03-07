@@ -1,8 +1,8 @@
 .container{
     cursor: pointer;
     transition: background-color .4s;
-    height: 40vh;
-    width: 14vw;
+    height: 25rem;
+    width: 17rem;
 }
 
 .image{
@@ -87,11 +87,14 @@
 
 .titleContainer{
     background-color: rgb(32, 32, 32);
-    padding-top: .5rem;
-    padding-bottom: .5rem;
+    padding: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     border-bottom-left-radius: .4rem;
     border-bottom-right-radius: .4rem;
+    height: 2.2rem;
 }
 
 .title{
