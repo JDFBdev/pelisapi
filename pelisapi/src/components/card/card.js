@@ -5,7 +5,7 @@ import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import { FaRegTrashAlt } from "react-icons/fa"
 import toast from "react-hot-toast";
 
-export default function Card({pelicula, color10}) {
+export default function Card({pelicula, color10, setSelected, open}) {
 
     const Navigate = useNavigate();
     const url = window.location.href.slice(21);
@@ -103,7 +103,7 @@ export default function Card({pelicula, color10}) {
     }
 
     return (
-        <div className={s.container} onClick={(e)=>{stopBubbling(e); Navigate(`/pelicula/${pelicula.id}`)}}>
+        <div className={s.container} onClick={(e)=>{stopBubbling(e); setSelected(pelicula); open()}}>
             {
                 (url === '/' && fav) &&
                 <div className={s.favContainer}><AiFillStar size={"2rem"} className={s.fav}/></div>    

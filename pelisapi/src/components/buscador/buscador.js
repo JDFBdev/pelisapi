@@ -5,6 +5,9 @@ import Card from "../card/card";
 import s from "./buscador.module.css"
 import Swiper from '../Swiper/Swiper';
 import ParticleBackground from 'react-particle-backgrounds';
+import { useModal } from "react-hooks-use-modal";
+import { CSSTransition } from "react-transition-group";
+import Pelicula from "../pelicula/pelicula";
 let apiKey = '9606b913162ebfc8b1e68fc22f824e10';
 
 const settings = {
@@ -30,18 +33,27 @@ export default function Buscador({color10}){
     const[peliculas, setPeliculas] = useState([]);
     const Navigate = useNavigate();
     const [populares, setPopulares] = useState(true);
+    const [selected, setSelected] = useState({});
+    const [Modal, open] = useModal('root', {
+        preventScroll: true,
+        closeOnOverlayClick: true
+    });
 
     const handleInput = function(e){
       setInput(e.target.value);
     }
 
     const handlePopular = async function(){
-        let promise1 = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`)
-        let promise2 = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=2`)
-        let promise3 = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=3`)
+        
+        let promise1 = axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`)
+        let promise2 = axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=2`)
+        let promise3 = axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=3`)
         let response = [];
-        response = promise1.data.results.concat(promise2.data.results);
-        response = response.concat(promise3.data.results);
+        
+        await Promise.all([promise1,promise2,promise3]).then(values=>{
+            response = values[0].data.results.concat(values[1].data.results);
+            response = response.concat(values[2].data.results);
+        })
 
         setPopulares(true);
         setPeliculas(response);
@@ -72,15 +84,15 @@ export default function Buscador({color10}){
         return (
         <>
             <h3 className={s.swiperTitle}>Trending</h3>
-            <Swiper peliculas={peliculas} color10={color10} />
+            <Swiper peliculas={peliculas} color10={color10} setSelected={setSelected} open={open} />
             <h3 className={s.swiperTitle}>Action</h3>
-            <Swiper peliculas={accion} color10={color10} />
+            <Swiper peliculas={accion} color10={color10} setSelected={setSelected} open={open} />
             <h3 className={s.swiperTitle}>Animation</h3>
-            <Swiper peliculas={animacion} color10={color10} />
+            <Swiper peliculas={animacion} color10={color10} setSelected={setSelected} open={open} />
             <h3 className={s.swiperTitle}>Drama</h3>
-            <Swiper peliculas={drama} color10={color10} />
+            <Swiper peliculas={drama} color10={color10} setSelected={setSelected} open={open} />
             <h3 className={s.swiperTitle}>Sciene Fiction</h3>
-            <Swiper peliculas={ficcion} color10={color10} />
+            <Swiper peliculas={ficcion} color10={color10} setSelected={setSelected} open={open} />
         </>
         )
     }
@@ -107,7 +119,6 @@ export default function Buscador({color10}){
     
     return (
         <div className={s.buscador}>
-            
             <div className={s.navbar}>
                 <div className={s.inputDiv}>
                     <input className={s.input} name='input' onChange={handleInput} onSubmit={handleSubmit}></input>
@@ -129,11 +140,22 @@ export default function Buscador({color10}){
                     {
                         (!populares) &&
                         peliculas?.map((p)=>{
-                            return <Card key={p.id} pelicula={p} color10={color10} />
+                            return <Card key={p.id} pelicula={p} color10={color10} setSelected={setSelected} open={open} />
                         })
                     }
                 </div>
             </div>
+            <Modal>
+            <CSSTransition
+                in={true}
+                timeout={0}
+                appear={true}
+                key={0}
+                classNames={{ appear: s.MyClassEnterActive, enterDone: s.MyClassEnterDone}}
+            >
+                <Pelicula id={selected.id} />
+            </CSSTransition>
+            </Modal>
         </div>
     )
 }

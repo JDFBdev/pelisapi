@@ -1,9 +1,14 @@
 .container{
     background-image: linear-gradient(to bottom right, rgb(13, 37, 77), rgb(26, 145, 85));
-    min-height: 100vh;
-    height: calc(fit-content + 5vh);
+    height: fit-content;
+    min-height: 50vh;
+    max-width: 40vw;
     overflow-x: hidden;
     position: relative;
+    min-width: 40vw;
+    border-radius: 1rem;
+    overflow: hidden;
+
 }
 
 .background{
@@ -11,47 +16,7 @@
     margin: 0;
 }
 
-.navbar{
-    position: fixed;
-    background-color: rgb(39, 39, 39);
-    padding: 1rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    height: 5%;
-    width: 100vw;
-    z-index: 15;
-}
-
-.btn{
-    border: none;
-    padding: .5rem;
-    font-family: 'Montserrat';
-    font-size: 1.3rem;
-    background: none;
-    color: rgb(177, 177, 177);
-    font-weight: bolder;
-    cursor: pointer;
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
-
-.title{
-    margin: 2rem;
-    color:white;
-    font-size: 2rem;
-    font-family: 'Montserrat';
-}
-
 .info{
-    position: absolute;
-    left: 0; 
-    right: 0; 
-    bottom: 0;
-    top: 0;
-    margin: auto;
-    margin-top: 3%;
     text-align: center;
     color: white;
     font-family: "Montserrat";
@@ -59,27 +24,30 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 40vw;
-    align-self: center;
-
+    margin: 2rem;
 }
 
+.titulo{
+    margin: 0;
+    color:white;
+    font-size: 2.5rem;
+    font-family: 'Montserrat';
+}
+
+
 .img{
-    width: 20vw;
+    width: 15vw;
     object-fit: cover;
     border-radius: 1rem;
+    z-index: 1;
 }
 
 .descripcion{
-    width: 40vw;
+    width: 95%;
     height: fit-content;
 }
 
 .detalles{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin: .5rem;
-}
-
-.titulo{
-    font-size: 3rem;
 }

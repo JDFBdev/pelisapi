@@ -12,13 +12,13 @@ import "./styles.css";
 // import required modules
 import { Pagination } from "swiper";
 
-export default function App({peliculas, color10}) {
+export default function App({peliculas, color10, setSelected, open}) {
   return (
     <>
       <Swiper
-        slidesPerView={5}
+        slidesPerView={6}
         centeredSlides={false}
-        spaceBetween={-500}
+        spaceBetween={0}
         grabCursor={true}
 
         pagination={false}
@@ -27,7 +27,7 @@ export default function App({peliculas, color10}) {
       >
     {
         peliculas?.map((p)=>{
-            return <SwiperSlide key={p.id}><Card key={p.id} pelicula={p} color10={color10} /></SwiperSlide>
+            return <SwiperSlide key={p.id}><Card key={p.id} pelicula={p} color10={color10} setSelected={setSelected} open={open} /></SwiperSlide>
         })
     }
       </Swiper>
