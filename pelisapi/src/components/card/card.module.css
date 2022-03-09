@@ -108,7 +108,7 @@
     z-index: 13;
     width: inherit;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .fav{
