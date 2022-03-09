@@ -1,16 +1,16 @@
 .container{
     cursor: pointer;
     transition: background-color .4s;
-    height: 25rem;
-    width: 17rem;
+    height: 400px;
+    width: 280px;
 }
 
 .image{
     background-repeat: none repeat;
     background-size:cover;
     background-position: center;
-    width: 100%;
-    height: 100%;
+    width: 280px;
+    height: 400px;
     filter:brightness(90%);
     border-top-left-radius: .4rem;
     border-top-right-radius: .4rem;
@@ -18,8 +18,8 @@
 
 .info{
     background-color: rgba(80, 80, 80, 0);
-    width: 14vw;
-    height: 40vh;
+    height: 400px;
+    width: 280px;
     z-index: 10;
     position: absolute;
     transition: background-color .5s;
@@ -123,4 +123,56 @@
 .fav:hover {
     color: rgb(251, 255, 0);
     transition: color .4s;
+}
+
+@media (max-width: 1500px) {
+    .container,
+    .image,
+    .info{
+        width: 230px;
+        height: 330px;
+    }
+
+}
+
+@media (max-width: 850px) {
+    .container,
+    .image,
+    .info{
+        width: 210px;
+        height: 300px;
+    }
+
+    .title{
+        font-size: .8rem;
+    }
+
+}
+
+@media (max-width: 640px) {
+    .container,
+    .image,
+    .info{
+        width: 150px;
+        height: 210px;
+    }
+
+    .title{
+        font-size: .7rem;
+    }
+
+}
+
+@media (max-width: 420px) {
+    .container,
+    .image,
+    .info{
+        width: 120px;
+        height: 160px;
+    }
+
+    .title{
+        font-size: .6rem;
+    }
+
 }

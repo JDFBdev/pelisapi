@@ -45,8 +45,38 @@
 
 .cards {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     grid-column-gap: 3rem;
     grid-row-gap: 4rem;
     margin: 2rem;
+}
+
+@media (max-width: 940px) {
+    .cards {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 824px) {
+    .cards {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 730px) {
+    .cards {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    .cards {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+}
+
+@media (max-width: 415px) {
+    .cards {
+        grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+    }
 }
