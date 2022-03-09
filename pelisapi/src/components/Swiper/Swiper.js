@@ -2,7 +2,6 @@ import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import Card from "../card/card";
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -16,13 +15,9 @@ export default function App({peliculas, color10, setSelected, open}) {
   return (
     <>
       <Swiper
-        slidesPerView={6}
-        centeredSlides={false}
-        spaceBetween={0}
-        grabCursor={true}
-
+        slidesPerView={'auto'}
+        spaceBetween={30}
         pagination={false}
-        modules={[Pagination]}
         className="mySwiper"
       >
     {
