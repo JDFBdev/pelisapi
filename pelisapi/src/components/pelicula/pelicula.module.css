@@ -1,13 +1,12 @@
 .container{
     background-image: linear-gradient(to bottom right, rgb(13, 37, 77), rgb(26, 145, 85));
     height: fit-content;
+    max-height: 90vh;
     min-height: 50vh;
-    max-width: 40vw;
+    width: 40vw;
     overflow-x: hidden;
     position: relative;
-    min-width: 40vw;
     border-radius: 1rem;
-    overflow: hidden;
 
 }
 
@@ -34,6 +33,11 @@
     font-family: 'Montserrat';
 }
 
+.detalles{
+    font-size: 1.3rem;
+    margin: .5rem;
+}
+
 
 .img{
     width: 15vw;
@@ -47,7 +51,97 @@
     height: fit-content;
 }
 
-.detalles{
-    font-size: 1.3rem;
-    margin: .5rem;
+
+@media (max-width: 1390px) {
+
+    .titulo{
+        font-size: 2rem;
+    }
+
+    .detalles{
+        font-size: 1rem;
+
+    }
+
+}
+
+
+@media (max-width: 1100px) {
+
+    .titulo{
+        font-size: 2rem;
+    }
+
+    .detalles{
+        font-size: 1rem;
+    }
+
+    .img{
+        width: 23vw;
+    }
+
+    .container{
+        width: 50vw;
+    }
+
+}
+
+@media (max-width: 850px) {
+
+    .titulo{
+        font-size: 1.7rem;
+    }
+
+    .detalles{
+        font-size: 1rem;
+    }
+
+    .img{
+        width: 28vw;
+    }
+
+    .container{
+        width: 60vw;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .titulo{
+        font-size: 1.7rem;
+    }
+
+    .detalles{
+        font-size: 1rem;
+    }
+
+    .img{
+        width: 35vw;
+    }
+
+    .container{
+        width: 75vw;
+    }
+
+}
+
+@media (max-width: 470px) {
+
+    .titulo{
+        font-size: 1.5rem;
+    }
+
+    .detalles{
+        font-size: .8rem;
+    }
+
+    .img{
+        width: 35vw;
+    }
+
+    .container{
+        width: 75vw;
+    }
+
 }
