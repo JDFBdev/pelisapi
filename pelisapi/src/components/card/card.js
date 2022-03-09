@@ -106,15 +106,15 @@ export default function Card({pelicula, color10, setSelected, open}) {
         <div className={s.container} onClick={(e)=>{stopBubbling(e); setSelected(pelicula); open()}}>
             {
                 (url === '/' && fav) &&
-                <div className={s.favContainer}><AiFillStar size={"2rem"} className={s.fav}/></div>    
+                <div className={s.favContainer}><AiFillStar className={s.fav}/></div>    
             }
             {
                 (url === '/' && !fav) &&
-                <div className={s.favContainer}><AiOutlineStar size={"2rem"} onClick={handleFav} className={s.fav}/></div>    
+                <div className={s.favContainer}><AiOutlineStar onClick={handleFav} className={s.fav}/></div>    
             }
             {
                 url === '/favs' && 
-                <div className={s.favContainer}><FaRegTrashAlt size={"2rem"} onClick={handleRemoveFav} className={s.fav}/></div>
+                <div className={s.favContainer}><FaRegTrashAlt  onClick={handleRemoveFav} className={s.fav}/></div>
             }
             <div className={s.info}>
                 {handleRating()}
