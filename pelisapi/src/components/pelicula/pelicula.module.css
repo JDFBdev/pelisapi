@@ -33,6 +33,21 @@
     font-family: 'Montserrat';
 }
 
+.favContainer{
+    cursor: pointer;
+    z-index: 10;
+    margin: 0;
+}
+
+.fav{
+    margin-top: .4rem;
+    color: rgb(214, 214, 1);
+    transition: color .4s;
+    margin-right: .4rem;
+    width: 2rem;
+    height: 2rem;
+}
+
 .detalles{
     font-size: 1.3rem;
     margin: .5rem;

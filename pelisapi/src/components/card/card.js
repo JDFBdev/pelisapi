@@ -1,14 +1,13 @@
 import React, {useState, useEffect} from "react"
 import s from "./card.module.css"
-import { useNavigate } from "react-router-dom";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import { FaRegTrashAlt } from "react-icons/fa"
 import toast from "react-hot-toast";
 
 export default function Card({pelicula, color10, setSelected, open}) {
 
-    const Navigate = useNavigate();
-    const url = window.location.href.slice(35);
+    // const url = window.location.href.slice(35);
+    const url = window.location.href.slice(21);
     const [fav, setFav] = useState(false);
 
     useEffect(() => {
@@ -22,7 +21,7 @@ export default function Card({pelicula, color10, setSelected, open}) {
                 setFav(true);
             }
         }
-    }, );
+    },[pelicula] );
 
     useEffect(() => {
         setFav(false);
@@ -36,7 +35,7 @@ export default function Card({pelicula, color10, setSelected, open}) {
                 setFav(true);
             }
         }
-    }, [pelicula]);
+    }, [pelicula, color10]);
 
     let favs = []
     function handleFav(e) {
@@ -96,6 +95,7 @@ export default function Card({pelicula, color10, setSelected, open}) {
                 break;
             case 10:
                 color = `rgb(${color10.r},${color10.g},${color10.b})`;
+                break;
             default:
                 
         }
@@ -125,7 +125,7 @@ export default function Card({pelicula, color10, setSelected, open}) {
                     }
                 </div>
             </div>
-            <div style={{ backgroundImage: "url(" + "https://image.tmdb.org/t/p/w500"+ pelicula.poster_path + ")"}} className={s.image}/>
+            <div style={{ backgroundImage: "url(https://image.tmdb.org/t/p/w500"+ pelicula.poster_path + ")"}} className={s.image}/>
             <div className={s.titleContainer}>
                 <p className={s.title} >{pelicula.title}</p>
             </div>

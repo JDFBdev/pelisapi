@@ -18,8 +18,8 @@ const settings = {
       maxSize: 6
     },
     velocity: {
-      minSpeed: 0.2,
-      maxSpeed: 0.4
+      minSpeed: 0.1,
+      maxSpeed: 0.2
     },
     opacity: {
       minOpacity: 0,
@@ -121,8 +121,10 @@ export default function Buscador({color10}){
         <div className={s.buscador}>
             <div className={s.navbar}>
                 <div className={s.inputDiv}>
-                    <input className={s.input} name='input' onChange={handleInput} onSubmit={handleSubmit}></input>
-                    <button className={s.btn} onClick={handleSubmit}>Search</button>
+                    <form>
+                        <input className={s.input} name='input' onChange={handleInput} onSubmit={handleSubmit}></input>
+                        <button className={s.btn} type='submit' onClick={handleSubmit}>Search</button>
+                    </form>
                 </div>
                 <div className={s.btns}>
                     <button className={s.btn} onClick={()=>Navigate("/favs")}>Favorites</button>
