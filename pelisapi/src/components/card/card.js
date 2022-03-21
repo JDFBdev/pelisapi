@@ -6,8 +6,8 @@ import toast from "react-hot-toast";
 
 export default function Card({pelicula, color10, setSelected, open}) {
 
-    // const url = window.location.href.slice(35);
-    const url = window.location.href.slice(21);
+    const url = window.location.href.slice(35);
+    // const url = window.location.href.slice(21);
     const [fav, setFav] = useState(false);
 
     useEffect(() => {
