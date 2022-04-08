@@ -31,6 +31,12 @@
     border-radius: .5rem;
     height: 2rem;
     width: 20rem;
+    outline: none;
+    font-family: 'Montserrat';
+    padding-left: .8rem;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box; 
 }
 
 .btns{
